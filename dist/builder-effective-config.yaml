@@ -1,0 +1,30 @@
+directories:
+  output: dist
+  buildResources: assets
+extends: null
+appId: com.styberg.stybergnews
+productName: Styberg News
+files:
+  - filter:
+      - build/**/*
+      - main.js
+      - preload.js
+      - config.js
+      - package.json
+      - .env
+win:
+  target: nsis
+  icon: assets/icon.ico
+mac:
+  target: dmg
+  icon: assets/icon.icns
+linux:
+  target: AppImage
+  icon: assets/icon.png
+nsis:
+  oneClick: true
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: false
+  artifactName: ${productName}-Setup-${version}.${ext}
+electronVersion: 25.8.0
